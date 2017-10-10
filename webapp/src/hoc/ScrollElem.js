@@ -24,7 +24,7 @@ const transform2ScrollElem = (WrappedComponent, width, height) => {
         offsetX: Math.max(Math.min(0, width - this.content.offsetWidth), Math.min(0, offsetX - e.deltaX)),
         offsetY: Math.max(Math.min(0, height - this.content.offsetHeight), Math.min(0, offsetY - e.deltaY))
       });
-      console.log(this.state, width, height, this.content.offsetWidth, this.content.offsetHeight);
+      // console.log(this.state, width, height, this.content.offsetWidth, this.content.offsetHeight);
     }
 
     render() {

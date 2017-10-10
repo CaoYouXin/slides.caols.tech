@@ -4,6 +4,7 @@ import throttle from 'lodash/throttle';
 import { fromLocalStorage, toLocalStorage } from '../util';
 
 import { data } from './data';
+import { representing } from './representing';
 
 export const configStore = () => {
   let middlewares = [];
@@ -13,7 +14,8 @@ export const configStore = () => {
   }
 
   const store = createStore(combineReducers({
-    data
+    data,
+    representing
   }), fromLocalStorage(), applyMiddleware(...middlewares));
 
   store.subscribe(throttle(() => {
