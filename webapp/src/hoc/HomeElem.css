@@ -1,1 +1,32 @@
-.home-elem-wrapper {}
+.home-elem-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-elem-content {
+  overflow: hidden;
+}
+
+.home-elem-content > div {
+  transform-origin: 0 0 0;
+}
+
+.home-elem-wrapper, .home-elem-content, .home-elem-content > div {
+  transition: all 1s;
+}
+
+.home-elem-wrapper > h3 {
+  line-height: 50px;
+  text-indent: 1em;
+  color: white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.home-elem-wrapper > h3:hover {
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(255, 255, 255, 0.3) 100%);
+  color: blanchedalmond;
+  transition: all 0.3s;
+}

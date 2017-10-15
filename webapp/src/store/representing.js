@@ -1,9 +1,9 @@
-export const representing = (state = false, action) => {
+export const representing = (state = "", action) => {
   switch (action.type) {
     case 'REPRESENTING':
-      return true;
+      return action.name;
     case 'NOREPRESENTING':
-      return false;
+      return "";
     default:
       return state;
   }

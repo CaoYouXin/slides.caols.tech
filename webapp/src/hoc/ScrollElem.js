@@ -35,7 +35,7 @@ const transform2ScrollElem = (WrappedComponent, width, height) => {
         }} onWheel={(e) => this.onMouseWheel(e)}>
           <div className="scroll-elem-content" style={this.calcStyles()}
             ref={(content) => { this.content = content; }}>
-            <WrappedComponent />
+            <WrappedComponent {...this.props} />
           </div>
         </div>
       )
