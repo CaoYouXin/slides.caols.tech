@@ -4,8 +4,14 @@ import { connect } from 'react-redux';
 import { transform2ScrollElem } from './hoc';
 import PPT1 from './ppt1';
 import PPT2 from './ppt2';
+import PPT3 from './ppt3';
 
 class App extends Component {
+  bug() {
+    localStorage.clear();
+    window.location.href = '/';
+  }
+
   render() {
     const { representing, wrapperWidth, wrapperHeight } = this.props;
     return (
@@ -13,8 +19,16 @@ class App extends Component {
         width: representing !== '' ? wrapperWidth : '100%',
         height: representing !== '' ? wrapperHeight : 'auto'
       }}>
+        <div className="bug" onClick={(e) => this.bug()}>快速重置</div>
         <PPT1 name="2017年10月汇报" />
         <PPT2 name="2017年11月汇报" />
+        <PPT3 name="2017年12月汇报" />
+        {/* <PPT1 name="2017年10月汇报" />
+        <PPT2 name="2017年11月汇报" />
+        <PPT3 name="2017年12月汇报" />
+        <PPT1 name="2017年10月汇报" />
+        <PPT2 name="2017年11月汇报" />
+        <PPT3 name="2017年12月汇报" /> */}
       </div>
     );
   }

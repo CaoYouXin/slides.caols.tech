@@ -5,3 +5,20 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.bug {
+  position: absolute;
+  z-index: 100;
+  top: 1em;
+  left: 1em;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: whitesmoke;
+  line-height: 2em;
+  border-radius: 1em;
+  padding: 0 2em;
+}
+
+.bug:hover {
+  cursor: pointer;
+  background-color: #000;
+}
