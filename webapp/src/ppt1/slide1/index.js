@@ -11,7 +11,7 @@ class PPT1Slide1Component extends Component {
   }
 
   render() {
-    return (<div className="ppt1-slide1-wrapper"></div>)
+    return (<div className="ppt1-slide1-wrapper">Hello World 1</div>)
   }
 }
 

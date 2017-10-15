@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './FixedPosElem.css';
+import { connect } from 'react-redux';
 
 const transform2FixedPosElem = (WrappedComponent, idxX, idxY) => {
-  return class FixedPosElemComponent extends Component {
+  class FixedPosElemComponent extends Component {
     constructor(props) {
       super(props);
       this.state = { no: 0 };
@@ -27,8 +28,12 @@ const transform2FixedPosElem = (WrappedComponent, idxX, idxY) => {
       over(false);
     }
 
-    list() {
-
+    componentDidUpdate(prevProps) {
+      const { thumbSelected: prevThumbSelected } = prevProps;
+      const { thumbSelected, idx } = this.props;
+      if (-1 !== thumbSelected && prevThumbSelected !== thumbSelected && thumbSelected !== idx) {
+        this.setState({ no: 0 });
+      }
     }
 
     render() {
@@ -41,7 +46,7 @@ const transform2FixedPosElem = (WrappedComponent, idxX, idxY) => {
           left: (idxX * window.innerWidth) + 'px'
         }}>
           <div className="before" onClick={(e) => this.before()}>上一个</div>
-          <div className="list" onClick={(e) => this.list()}>
+          <div className="list" onClick={this.props.list}>
             <span>——</span>
             <span>——</span>
             <span>——</span>
@@ -52,6 +57,12 @@ const transform2FixedPosElem = (WrappedComponent, idxX, idxY) => {
       );
     }
   }
+
+  return connect(
+    (store) => ({
+      thumbSelected: store.thumb.no
+    })
+  )(FixedPosElemComponent);
 }
 
 export { transform2FixedPosElem };

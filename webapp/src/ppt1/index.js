@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import './index.css';
 import { connect } from 'react-redux';
-import { transform2HomeElem, transform2FixedScrollElem, transform2FixedPosElem } from '../hoc';
+import {
+  transform2HomeElem, transform2FixedScrollElem,
+  transform2FixedPosElem, transform2ScaledElem
+} from '../hoc';
 import Slide1 from './slide1';
 import Slide2 from './slide2';
 import Slide3 from './slide3';
 
+const thumbHeight = 256;
+const thumbWidth = window.innerWidth * thumbHeight / window.innerHeight;
 const slides = [
-  { x: 0, y: 0, slide: transform2FixedPosElem(Slide1, 0, 0) },
-  { x: 0, y: 1, slide: transform2FixedPosElem(Slide2, 0, 1) },
-  { x: 1, y: 1, slide: transform2FixedPosElem(Slide3, 1, 1) }
+  { x: 0, y: 0, slide: transform2FixedPosElem(Slide1, 0, 0), thumb: transform2ScaledElem(Slide1, thumbWidth, thumbHeight) },
+  { x: 0, y: 1, slide: transform2FixedPosElem(Slide2, 0, 1), thumb: transform2ScaledElem(Slide2, thumbWidth, thumbHeight) },
+  { x: 1, y: 1, slide: transform2FixedPosElem(Slide3, 1, 1), thumb: transform2ScaledElem(Slide3, thumbWidth, thumbHeight) }
 ];
 
 class PPT1Component extends Component {
@@ -29,19 +34,42 @@ class PPT1Component extends Component {
     move(0 - slide.x * window.innerWidth, 0 - slide.y * window.innerHeight);
   }
 
+  list() {
+    const { thumb } = this.props;
+    thumb(slides, thumbHeight);
+  }
+
+  goTo(no) {
+    const { move } = this.props;
+    const slide = slides[no];
+    move(0 - slide.x * window.innerWidth, 0 - slide.y * window.innerHeight);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { thumbSelected: prevThumbSelected } = prevProps;
+    const { thumbSelected } = this.props;
+    if (-1 !== thumbSelected && prevThumbSelected !== thumbSelected) {
+      this.goTo(thumbSelected);
+    }
+  }
+
   render() {
     return (
       <div className="ppt1-wrapper">
-        {slides.map((slide, i) => (
-          <slide.slide key={slide.x + ',' + slide.y} over={(isNext) => this.over(isNext, i)} />
-        ))}
+        {
+          slides.map((slide, i) => (
+            <slide.slide key={slide.x + ',' + slide.y} idx={i} over={(isNext) => this.over(isNext, i)} list={() => this.list()} />
+          ))
+        }
       </div>
     );
   }
 }
 
 export default transform2HomeElem(transform2FixedScrollElem(connect(
-  null,
+  (store) => ({
+    thumbSelected: store.thumb.no
+  }),
   (dispatch) => ({
     move: (offsetX, offsetY) => dispatch({
       type: "MOVE",
@@ -50,6 +78,11 @@ export default transform2HomeElem(transform2FixedScrollElem(connect(
         offsetX,
         offsetY
       }
+    }),
+    thumb: (slides, height) => dispatch({
+      type: "SHOW_THUMBS",
+      slides,
+      height
     })
   })
 )(PPT1Component), 'ppt1', window.innerWidth, window.innerHeight));

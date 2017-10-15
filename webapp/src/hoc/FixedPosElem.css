@@ -4,7 +4,7 @@
 
 .next {
   position: absolute;
-  z-index: 100;
+  z-index: 90;
   top: 1em;
   left: calc(50% + 30px);
   background-color: rgba(0, 0, 0, 0.5);
@@ -22,7 +22,7 @@
 
 .before {
   position: absolute;
-  z-index: 100;
+  z-index: 90;
   top: 1em;
   right: calc(50% + 30px);
   background-color: rgba(0, 0, 0, 0.5);
@@ -40,7 +40,7 @@
 
 .list {
   position: absolute;
-  z-index: 100;
+  z-index: 90;
   top: 1em;
   right: calc(50% - 15px);
   background-color: rgba(0, 0, 0, 0.5);

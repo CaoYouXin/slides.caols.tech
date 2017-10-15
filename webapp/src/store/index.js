@@ -6,6 +6,7 @@ import { fromLocalStorage, toLocalStorage } from '../util';
 import { data } from './data';
 import { representing } from './representing';
 import { home_view } from './home_view';
+import { thumb } from './thumb';
 
 export const configStore = () => {
   let middlewares = [];
@@ -17,7 +18,8 @@ export const configStore = () => {
   const store = createStore(combineReducers({
     data,
     representing,
-    home_view
+    home_view,
+    thumb
   }), fromLocalStorage(), applyMiddleware(...middlewares));
 
   store.subscribe(throttle(() => {

@@ -1,0 +1,13 @@
+.thumbs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 91;
+  background-color: #2e528f;
+  overflow: hidden;
+}
+
+.thumbs-content {
+  position: absolute;
+}

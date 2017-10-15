@@ -1,0 +1,11 @@
+.scaled-elem-wrapper {
+  position: absolute;
+  top: 0;
+}
+
+.scaled-elem-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0 0;
+}

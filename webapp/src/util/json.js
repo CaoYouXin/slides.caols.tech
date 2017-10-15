@@ -11,6 +11,7 @@ export const fromLocalStorage = () => {
       return undefined;
     }
     let data = JSON.parse(serialized);
+    data.thumb = undefined;
     return data;
   } catch (e) {
     return undefined;
