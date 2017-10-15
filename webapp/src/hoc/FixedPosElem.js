@@ -27,6 +27,10 @@ const transform2FixedPosElem = (WrappedComponent, idxX, idxY) => {
       over(false);
     }
 
+    list() {
+
+    }
+
     render() {
       const { no } = this.state;
       return (
@@ -37,6 +41,11 @@ const transform2FixedPosElem = (WrappedComponent, idxX, idxY) => {
           left: (idxX * window.innerWidth) + 'px'
         }}>
           <div className="before" onClick={(e) => this.before()}>上一个</div>
+          <div className="list" onClick={(e) => this.list()}>
+            <span>——</span>
+            <span>——</span>
+            <span>——</span>
+          </div>
           <div className="next" onClick={(e) => this.next()}>下一个</div>
           <WrappedComponent {...this.props} no={no} over={() => this.over()} />
         </div>
