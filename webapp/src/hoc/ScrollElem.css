@@ -1,6 +1,5 @@
 .scroll-elem-wrapper {
   overflow: hidden;
-  transition: transform 0.3s;
 }
 
 .scroll-elem-content {

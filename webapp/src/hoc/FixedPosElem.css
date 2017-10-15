@@ -1,0 +1,39 @@
+.fixed-pos-elem-wrapper {
+  position: absolute;
+}
+
+.next {
+  position: absolute;
+  z-index: 100;
+  top: 1em;
+  left: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: whitesmoke;
+  line-height: 2em;
+  border-radius: 1em;
+  padding: 0 2em;
+  opacity: 0.3;
+}
+
+.next:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.before {
+  position: absolute;
+  z-index: 100;
+  top: 1em;
+  right: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: whitesmoke;
+  line-height: 2em;
+  border-radius: 1em;
+  padding: 0 2em;
+  opacity: 0.3;
+}
+
+.before:hover {
+  cursor: pointer;
+  opacity: 1;
+}

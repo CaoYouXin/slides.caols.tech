@@ -4,7 +4,7 @@ import { transform2HomeElem } from '../hoc';
 
 class PPT3Component extends Component {
   render() {
-    return (<div class="ppt3-wrapper"></div>);
+    return (<div className="ppt3-wrapper"></div>);
   }
 }
 

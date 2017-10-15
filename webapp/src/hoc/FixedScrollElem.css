@@ -1,0 +1,7 @@
+.fixed-scroll-elem-wrapper {
+  overflow: hidden;
+}
+
+.fixed-scroll-elem-content {
+  transition: all 0.5s;
+}

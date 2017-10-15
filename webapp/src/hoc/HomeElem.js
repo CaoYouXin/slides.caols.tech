@@ -41,7 +41,7 @@ const transform2HomeElem = (WrappedComponent) => {
               height: window.innerHeight + 'px',
               transform: "scale3d(" + ((width - padding * 2) / window.innerWidth) + ", " + ((height - 2 * padding - 50) / window.innerHeight) + ", 1)"
             }}>
-              <WrappedComponent />
+              <WrappedComponent {...this.props} />
             </div>
           </div>
           <h3 onClick={(e) => this.change(e)}>{name}</h3>
