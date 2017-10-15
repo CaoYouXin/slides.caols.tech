@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 import { transform2HomeElem, transform2FixedScrollElem, transform2FixedPosElem } from '../hoc';
 import Slide1 from './slide1';
 import Slide2 from './slide2';
+import Slide3 from './slide3';
 
 const slides = [
   { x: 0, y: 0, slide: transform2FixedPosElem(Slide1, 0, 0) },
-  { x: 0, y: 1, slide: transform2FixedPosElem(Slide2, 0, 1) }
+  { x: 0, y: 1, slide: transform2FixedPosElem(Slide2, 0, 1) },
+  { x: 1, y: 1, slide: transform2FixedPosElem(Slide3, 1, 1) }
 ];
 
 class PPT1Component extends Component {
