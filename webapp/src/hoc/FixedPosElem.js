@@ -11,6 +11,7 @@ const transform2FixedPosElem = (WrappedComponent, idxX, idxY) => {
 
     next() {
       const { no } = this.state;
+
       this.setState({ no: no + 1 });
     }
 
