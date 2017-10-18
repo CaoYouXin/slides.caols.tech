@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
+import { transform2SlideElem } from '../../hoc';
 
 class PPT1Slide3Component extends Component {
   componentDidUpdate(prevProps) {
@@ -15,4 +16,4 @@ class PPT1Slide3Component extends Component {
   }
 }
 
-export default PPT1Slide3Component;
+export default transform2SlideElem(PPT1Slide3Component, 1);
