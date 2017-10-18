@@ -2,8 +2,4 @@
   overflow: hidden;
 }
 
-.scroll-elem-content {
-  overflow: hidden;
-  width: fit-content;
-  height: fit-content;
-}
+.scroll-elem-content {}
