@@ -8,13 +8,15 @@ import {
 import Slide1 from './slide1';
 import Slide2 from './slide2';
 import Slide3 from './slide3';
+import Slide4 from './slide4';
 import { ThumbHeight } from '../comp';
 
 const thumbWidth = window.innerWidth * ThumbHeight / window.innerHeight;
 const slides = [
   { x: 0, y: 0, slide: transform2SlideElem(Slide1, 0, 0, 3), thumb: transform2ScaledElem(Slide1, thumbWidth, ThumbHeight) },
   { x: 0, y: 1, slide: transform2SlideElem(Slide2, 0, 1, 1), thumb: transform2ScaledElem(Slide2, thumbWidth, ThumbHeight) },
-  { x: 1, y: 1, slide: transform2SlideElem(Slide3, 1, 1, 1), thumb: transform2ScaledElem(Slide3, thumbWidth, ThumbHeight) }
+  { x: 1, y: 1, slide: transform2SlideElem(Slide3, 1, 1, 1), thumb: transform2ScaledElem(Slide3, thumbWidth, ThumbHeight) },
+  { x: 1, y: 2, slide: transform2SlideElem(Slide4, 1, 2, 1), thumb: transform2ScaledElem(Slide4, thumbWidth, ThumbHeight) }
 ];
 
 class PPT1Component extends Component {
@@ -36,7 +38,7 @@ class PPT1Component extends Component {
 
   list() {
     const { thumb } = this.props;
-    thumb(slides, ThumbHeight);
+    thumb(slides, thumbWidth * slides.length, ThumbHeight);
   }
 
   goTo(no) {
@@ -79,10 +81,11 @@ export default transform2HomeElem(transform2FixedScrollElem(connect(
         offsetY
       }
     }),
-    thumb: (slides, height) => dispatch({
+    thumb: (slides, width, height) => dispatch({
       type: "SHOW_THUMBS",
       slides,
-      height
+      height,
+      width
     })
   })
 )(PPT1Component), 'ppt1', window.innerWidth, window.innerHeight));

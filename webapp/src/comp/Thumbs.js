@@ -5,9 +5,12 @@ import { transform2ScrollElem } from '../hoc';
 
 class ThumbsComponent extends Component {
   render() {
-    const { slides, thumbSelect } = this.props;
+    const { width, height, slides, thumbSelect } = this.props;
     return (
-      <div className="thumbs-content">
+      <div className="thumbs-content" style={{
+        width: width + 'px',
+        height: height + 'px'
+      }}>
         {
           slides.map((slide, i) => (
             <slide.thumb key={slide.x + ',' + slide.y} no={i} onClick={(no) => thumbSelect(no)} />
@@ -21,6 +24,8 @@ class ThumbsComponent extends Component {
 const height = 256;
 const Thumbs = transform2ScrollElem(connect(
   (store) => ({
+    width: store.thumb.width,
+    height: store.thumb.height,
     slides: store.thumb.slides
   }),
   (dispatch) => ({
@@ -29,7 +34,7 @@ const Thumbs = transform2ScrollElem(connect(
       no
     })
   })
-)(ThumbsComponent), window.innerWidth, height);
+)(ThumbsComponent), window.innerWidth, height, true);
 
 class ThumbWrapperComponent extends Component {
   render() {
