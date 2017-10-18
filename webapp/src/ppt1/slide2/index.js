@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './index.css';
-import { transform2SlideElem } from '../../hoc';
 
 class PPT1Slide2Component extends Component {
   render() {
@@ -8,4 +7,4 @@ class PPT1Slide2Component extends Component {
   }
 }
 
-export default transform2SlideElem(PPT1Slide2Component, 1);
+export default PPT1Slide2Component;

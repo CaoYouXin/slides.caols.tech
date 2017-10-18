@@ -3,7 +3,7 @@ import './index.css';
 import { connect } from 'react-redux';
 import {
   transform2HomeElem, transform2FixedScrollElem,
-  transform2FixedPosElem, transform2ScaledElem
+  transform2SlideElem, transform2ScaledElem
 } from '../hoc';
 import Slide1 from './slide1';
 import Slide2 from './slide2';
@@ -12,9 +12,9 @@ import Slide3 from './slide3';
 const thumbHeight = 256;
 const thumbWidth = window.innerWidth * thumbHeight / window.innerHeight;
 const slides = [
-  { x: 0, y: 0, slide: transform2FixedPosElem(Slide1, 0, 0), thumb: transform2ScaledElem(Slide1, thumbWidth, thumbHeight) },
-  { x: 0, y: 1, slide: transform2FixedPosElem(Slide2, 0, 1), thumb: transform2ScaledElem(Slide2, thumbWidth, thumbHeight) },
-  { x: 1, y: 1, slide: transform2FixedPosElem(Slide3, 1, 1), thumb: transform2ScaledElem(Slide3, thumbWidth, thumbHeight) }
+  { x: 0, y: 0, slide: transform2SlideElem(Slide1, 0, 0, 3), thumb: transform2ScaledElem(Slide1, thumbWidth, thumbHeight) },
+  { x: 0, y: 1, slide: transform2SlideElem(Slide2, 0, 1, 1), thumb: transform2ScaledElem(Slide2, thumbWidth, thumbHeight) },
+  { x: 1, y: 1, slide: transform2SlideElem(Slide3, 1, 1, 1), thumb: transform2ScaledElem(Slide3, thumbWidth, thumbHeight) }
 ];
 
 class PPT1Component extends Component {

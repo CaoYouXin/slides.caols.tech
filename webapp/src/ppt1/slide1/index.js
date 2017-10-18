@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
 import TWEEN from '@tweenjs/tween.js';
-import { transform2SlideElem } from '../../hoc';
 
 class PPT1Slide1Component extends Component {
   constructor(props) {
@@ -14,7 +13,7 @@ class PPT1Slide1Component extends Component {
 
   componentDidUpdate(prevProps) {
     const { no: prevNo } = prevProps;
-    const { no } = this.props;
+    const { no, animationFinished } = this.props;
     if (prevNo === no) {
       return;
     }
@@ -33,6 +32,9 @@ class PPT1Slide1Component extends Component {
           }
           self.setState({ opacity: Math.abs(state1.x * 2 - 1) });
         });
+        tween1.onComplete(function () {
+          animationFinished();
+        });
         tween1.easing(TWEEN.Easing.Linear.None);
         tween1.start();
         break;
@@ -48,11 +50,15 @@ class PPT1Slide1Component extends Component {
           }
           self.setState({ opacity: Math.abs(state2.x * 2 - 1) });
         });
+        tween2.onComplete(function () {
+          animationFinished();
+        });
         tween2.easing(TWEEN.Easing.Linear.None);
         tween2.start();
         break;
       case 0:
         this.setState({ text: 'Hello World.' });
+        animationFinished();
         break;
       default:
         return;
@@ -64,4 +70,4 @@ class PPT1Slide1Component extends Component {
   }
 }
 
-export default transform2SlideElem(PPT1Slide1Component, 3);
+export default PPT1Slide1Component;
