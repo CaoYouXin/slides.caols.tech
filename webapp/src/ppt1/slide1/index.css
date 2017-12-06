@@ -5,3 +5,29 @@
   color: white;
   font-size: 56px;
 }
+
+@keyframes far_to_near {
+  0% {
+    transform: scale(0) translateY(0) rotateZ(0);
+  }
+  80% {
+    transform: scale(1) translateY(-68px) rotateZ(0);
+  }
+  90% {
+    transform: scale(1) translateY(-48px) rotateZ(0.02turn);
+  }
+  94% {
+    transform: scale(1) translateY(0) rotateZ(-0.01turn);
+  }
+  97% {
+    transform: scale(1) translateY(0) rotateZ(0.005turn);
+  }
+  100% {
+    transform: scale(1) translateY(0) rotateZ(0);
+  }
+}
+
+.effect {
+  transform-origin: 50% 50% 0;
+  animation: far_to_near 2s cubic-bezier(.5, 1.05, .59, .99) 0s 1;
+}

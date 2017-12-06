@@ -3,3 +3,37 @@
   height: 100%;
   background-color: #fff;
 }
+
+.progress-bar {
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar>.background, .progress-bar>.foreground, .progress-bar>.text {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+}
+
+.progress-bar>.background {
+  z-index: 1;
+  background: rgba(255, 125, 255, 1);
+}
+
+.progress-bar>.foreground {
+  transform-origin: 0 50% 0;
+  transform: scaleX(0);
+  transition: transform 1s;
+  z-index: 2;
+  background: rgba(255, 0, 255, 1);
+}
+
+.progress-bar>.text {
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.369);
+  color: white;
+  line-height: 30px;
+}

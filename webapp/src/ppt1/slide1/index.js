@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './index.css';
-import TWEEN from '@tweenjs/tween.js';
+import TWEEN from '@tweenjs/tween';
+import { group } from '../../util/css';
 
 class PPT1Slide1Component extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: 'Hello World.',
-      opacity: 1
+      text: '',
+      opacity: 1,
+      effect: false
     };
   }
 
@@ -21,6 +23,14 @@ class PPT1Slide1Component extends Component {
     const self = this;
     switch (no) {
       case 1:
+        this.setState({ text: 'Hello World.', effect: true });
+        animationFinished();
+        break;
+      case 2:
+        this.setState({ text: '', effect: false });
+        animationFinished();
+        break;
+      case 3:
         let state1 = { x: 0 };
         let target1 = { x: 1 };
         let flipped1 = false;
@@ -38,7 +48,7 @@ class PPT1Slide1Component extends Component {
         tween1.easing(TWEEN.Easing.Linear.None);
         tween1.start();
         break;
-      case 2:
+      case 4:
         let state2 = { x: 0 };
         let target2 = { x: 1 };
         let flipped2 = false;
@@ -57,7 +67,7 @@ class PPT1Slide1Component extends Component {
         tween2.start();
         break;
       case 0:
-        this.setState({ text: 'Hello World.' });
+        this.setState({ text: '', effect: false });
         animationFinished();
         break;
       default:
@@ -66,7 +76,15 @@ class PPT1Slide1Component extends Component {
   }
 
   render() {
-    return (<div className="ppt1-slide1-wrapper mid-box"><span style={{ opacity: this.state.opacity }}>{this.state.text}</span></div>);
+    return (
+      <div className="ppt1-slide1-wrapper mid-box">
+        <span className={group({
+          "effect": this.state.effect
+        })} style={{
+          opacity: this.state.opacity
+        }}>{this.state.text}</span>
+      </div>
+    );
   }
 }
 

@@ -1,4 +1,4 @@
-export const group = (decision, addition) => {
+const group = (decision, addition) => {
   let remains = null;
 
   if (!decision) {
@@ -15,7 +15,7 @@ export const group = (decision, addition) => {
   return all.join(' ');
 }
 
-export const select = (one, candidates) => {
+const select = (one, candidates) => {
   let candidate = candidates[one];
   candidate = !candidate ? {} : candidate;
 
@@ -27,3 +27,5 @@ export const select = (one, candidates) => {
 
   return candidate;
 }
+
+export { group, select };
