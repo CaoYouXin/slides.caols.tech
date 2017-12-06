@@ -24,7 +24,7 @@ class PPT1Slide1Component extends Component {
     switch (no) {
       case 1:
         this.setState({ text: 'Hello World.', effect: true });
-        animationFinished();
+        setTimeout(animationFinished, 2000);
         break;
       case 2:
         this.setState({ text: '', effect: false });

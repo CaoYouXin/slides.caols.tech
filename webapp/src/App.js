@@ -22,7 +22,9 @@ class App extends Component {
           height: representing !== '' ? wrapperHeight : 'auto'
         }}>
           <div className="bug" onClick={(e) => this.bug()}>快速重置</div>
-          <PPT1 name="第一次宣讲" />
+          <PPT1 name="⏎" />
+          <PPT2 name="☻" />
+          <PPT3 name="☯" />
           <Thumbs />
         </div>
       </div>
