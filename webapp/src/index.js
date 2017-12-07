@@ -15,3 +15,13 @@ requestAnimationFrame(loop);
 
 ReactDOM.render(<Provider store={configStore()}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
+
+// document.addEventListener('keydown', (event) => {
+//   const keyName = event.key;
+
+//   console.log('keydown event\n\nkey: ' + keyName);
+// });
+
+// document.addEventListener('mousedown', (event) => {
+//   console.log(`mouse down: ${event}`);
+// });

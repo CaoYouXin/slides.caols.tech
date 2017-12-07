@@ -28,4 +28,10 @@ const select = (one, candidates) => {
   return candidate;
 }
 
-export { group, select };
+const random = () => {
+  let number = ~~(Math.random() * (1 << 24));
+  let s = number.toString(16);
+  return '#' + '000000'.substring(s.length) + s;
+}
+
+export { group, select, random };

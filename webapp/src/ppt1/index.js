@@ -15,7 +15,7 @@ const thumbWidth = window.innerWidth * ThumbHeight / window.innerHeight;
 const slides = [
   { x: 0, y: 0, slide: transform2SlideElem(Slide1, 0, 0, 5), thumb: transform2ScaledElem(Slide1, thumbWidth, ThumbHeight) },
   { x: 0, y: 1, slide: transform2SlideElem(Slide2, 0, 1, 2), thumb: transform2ScaledElem(Slide2, thumbWidth, ThumbHeight) },
-  { x: 1, y: 1, slide: transform2SlideElem(Slide3, 1, 1, 1), thumb: transform2ScaledElem(Slide3, thumbWidth, ThumbHeight) },
+  { x: 1, y: 1, slide: transform2SlideElem(Slide3, 1, 1, 2), thumb: transform2ScaledElem(Slide3, thumbWidth, ThumbHeight) },
   { x: 1, y: 2, slide: transform2SlideElem(Slide4, 1, 2, 1), thumb: transform2ScaledElem(Slide4, thumbWidth, ThumbHeight) }
 ];
 
