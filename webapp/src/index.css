@@ -10,7 +10,7 @@
   text-align: center;
 }
 
-.mid-box > *, .mid-box:after {
+.mid-box>*, .mid-box:after {
   display: inline-block;
   vertical-align: middle;
 }

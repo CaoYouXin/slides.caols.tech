@@ -54,13 +54,17 @@ class PPT1Slide3Component extends Component {
   }
 
   render() {
-    var data = [[0, 0.3, "#ff2"], [0.3, 0.4, "#f2f"], [0.4, 1, "#2ff"]];
+    var data = [[0, 0.3, "#ff2", 0.15, "30% - 图片"], [0.3, 0.4, "#f2f", 0.35, "10% - 文字"], [0.4, 1, "#2ff", 0.7, "60% - 创意"]];
     let state = this.state.state;
     data = data.map(datum => {
       if (state >= datum[1]) {
         return datum;
       } else if (state > datum[0]) {
-        return [datum[0], state, datum[2]];
+        if (state > datum[3]) {
+          return [datum[0], state, datum[2], datum[3], datum[4]];
+        } else {
+          return [datum[0], state, datum[2], datum[3], ""];
+        }
       } else {
         return null;
       }
@@ -68,10 +72,7 @@ class PPT1Slide3Component extends Component {
 
     return (
       <div className="ppt1-slide3-wrapper mid-box">
-        <svg className="svg-wrapper" style={{
-          width: window.innerWidth + 'px',
-          height: window.innerHeight + 'px'
-        }} viewBox={`0 0 ${window.innerWidth} ${window.innerHeight}`}>
+        <svg viewBox={`0 0 ${window.innerWidth} ${window.innerHeight}`}>
           <filter id="dropshadow" height="130%">
             <feGaussianBlur in="SourceAlpha" stdDeviation="10" />
             <feOffset dx="0" dy="0" result="offsetblur" />
@@ -88,7 +89,22 @@ class PPT1Slide3Component extends Component {
               data.map(datum => (<path key={datum[2]}
                 // style={{ "filter": "url(#dropshadow)" }}
                 fill={datum[2]}
-                d={`M 0,0 L ${window.innerHeight / 3 * Math.sin(datum[0] * 2 * Math.PI)} ${0 - window.innerHeight / 3 * Math.cos(datum[0] * 2 * Math.PI)} A ${window.innerHeight / 3},${window.innerHeight / 3} 0 ${(datum[1] - datum[0]) > 0.5 ? 1 : 0},1 ${window.innerHeight / 3 * Math.sin(datum[1] * 2 * Math.PI)} ${0 - window.innerHeight / 3 * Math.cos(datum[1] * 2 * Math.PI)}`}></path>))
+                d={`M 0,0 L ${window.innerHeight / 4 * Math.sin(datum[0] * 2 * Math.PI)} ${0 - window.innerHeight / 4 * Math.cos(datum[0] * 2 * Math.PI)} A ${window.innerHeight / 4},${window.innerHeight / 4} 0 ${(datum[1] - datum[0]) > 0.5 ? 1 : 0},1 ${window.innerHeight / 4 * Math.sin(datum[1] * 2 * Math.PI)} ${0 - window.innerHeight / 4 * Math.cos(datum[1] * 2 * Math.PI)}`}></path>))
+            }
+            {
+              data.map(datum => {
+                let toMetrure = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                toMetrure.setAttributeNS(null, "font-size", 18);
+                toMetrure.setAttributeNS(null, "fill", "rgba(0,0,0,0)");
+                toMetrure.innerHTML = datum[4];
+                let toMetrureGround = document.querySelector('svg.hidden');
+                toMetrureGround.innerHTML = "";
+                toMetrureGround.appendChild(toMetrure);
+                return (<text key={datum[2]} style={{
+                  "fontSize": "18px",
+                  "fill": datum[2]
+                }} x={window.innerHeight / 4 * 1.3 * Math.sin(datum[3] * 2 * Math.PI) - toMetrure.getBBox().width * (datum[3] > 0.5 ? 1 : 0)} y={0 - window.innerHeight / 4 * 1.3 * Math.cos(datum[3] * 2 * Math.PI)}>{datum[4]}</text>);
+              })
             }
           </g>
         </svg>

@@ -1,9 +1,14 @@
 .ppt1-slide3-wrapper {
   width: 100%;
   height: 100%;
+  position: relative;
   background-color: #888;
 }
 
-.svg-wrapper {
-  background: rgba(207, 83, 83, 0.514);
+.ppt1-slide3-wrapper>svg {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }

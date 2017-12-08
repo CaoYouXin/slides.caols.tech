@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     const { representing, wrapperWidth, wrapperHeight } = this.props;
     return (
-      <div>
+      <div style={{ "fontSize": "16px" }}>
         <div className="App" style={{
           width: representing !== '' ? wrapperWidth : '100%',
           height: representing !== '' ? wrapperHeight : 'auto'
