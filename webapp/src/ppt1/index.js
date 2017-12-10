@@ -9,6 +9,7 @@ import Slide1 from './slide1';
 import Slide2 from './slide2';
 import Slide3 from './slide3';
 import Slide4 from './slide4';
+import Slide5 from './slide5';
 import { ThumbHeight } from '../comp';
 
 const thumbWidth = window.innerWidth * ThumbHeight / window.innerHeight;
@@ -17,6 +18,7 @@ const slides = [
   { x: 0, y: 1, slide: transform2SlideElem(Slide2, 0, 1, 2), thumb: transform2ScaledElem(Slide2, thumbWidth, ThumbHeight) },
   { x: 1, y: 1, slide: transform2SlideElem(Slide3, 1, 1, 2), thumb: transform2ScaledElem(Slide3, thumbWidth, ThumbHeight) },
   { x: 1, y: 2, slide: transform2SlideElem(Slide4, 1, 2, 1), thumb: transform2ScaledElem(Slide4, thumbWidth, ThumbHeight) }
+  // { x: 2, y: 2, slide: transform2SlideElem(Slide5, 2, 2, 1), thumb: transform2ScaledElem(Slide5, thumbWidth, ThumbHeight) }
 ];
 
 class PPT1Component extends Component {

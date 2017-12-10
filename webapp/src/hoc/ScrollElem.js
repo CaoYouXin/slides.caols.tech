@@ -19,13 +19,13 @@ const transform2ScrollElem = (WrappedComponent, width, height, flipXY) => {
     }
 
     onMouseWheel(e) {
-      console.log(e);
+      // console.log(e);
       const { offsetX, offsetY } = this.state;
       this.setState({
         offsetX: Math.max(Math.min(0, width - this.content.offsetWidth), Math.min(0, offsetX - flipXY ? - e.deltaY : e.deltaX)),
         offsetY: Math.max(Math.min(0, height - this.content.offsetHeight), Math.min(0, offsetY - flipXY ? e.deltaX : e.deltaY))
       });
-      // console.log(this.state, width, height, this.content.offsetWidth, this.content.offsetHeight);
+      console.log(this.state, width, height, this.content.offsetWidth, this.content.offsetHeight);
     }
 
     render() {
